@@ -1750,13 +1750,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun Pickup (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8589143665434786, guid: fa9c5921f7a67fe49822424e8604a768, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 4182507049943256990}
     - target: {fileID: 8589143665434790, guid: fa9c5921f7a67fe49822424e8604a768, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8589143665434790, guid: fa9c5921f7a67fe49822424e8604a768, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.652
+      value: 4.642
       objectReference: {fileID: 0}
     - target: {fileID: 8589143665434790, guid: fa9c5921f7a67fe49822424e8604a768, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1764,7 +1768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8589143665434790, guid: fa9c5921f7a67fe49822424e8604a768, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.194
       objectReference: {fileID: 0}
     - target: {fileID: 8589143665434790, guid: fa9c5921f7a67fe49822424e8604a768, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3296,6 +3300,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f425ed2620d57b64faf88d5612cfb00b, type: 3}
       propertyPath: m_Name
       value: blasterL
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f425ed2620d57b64faf88d5612cfb00b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6064,7 +6072,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4182507049943256986}
   - component: {fileID: 4182507049943256987}
-  - component: {fileID: 4182507049943256989}
   - component: {fileID: 4182507049943256990}
   m_Layer: 0
   m_Name: Shotgun
@@ -6081,7 +6088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4182507049943256985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.88, y: 0, z: 0}
+  m_LocalPosition: {x: 0.105, y: 0, z: -0.949}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6110,24 +6117,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4182507049943256989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4182507049943256985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa60e089a3878fe48a36bb936d3ed3c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunBarrelEnd: {fileID: 4182507051445114761}
-  bulletPrefab: {fileID: 487163690456666478, guid: 8eca411acead9e64e8f7c5fa7bc3db2c, type: 3}
-  anim: {fileID: 4182507049943256987}
-  maxAmmo: 10
-  timeBetweenShots: 0.1
-  isAutomatic: 0
 --- !u!114 &4182507049943256990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6141,11 +6130,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunBarrelEnd: {fileID: 4182507051445114761}
-  bulletPrefab: {fileID: 487163690456666478, guid: 8eca411acead9e64e8f7c5fa7bc3db2c, type: 3}
+  bulletPrefab: {fileID: 487163690456666478, guid: f5ff675e162b78b408d477e7c0d5a5d7, type: 3}
   anim: {fileID: 4182507049943256987}
   maxAmmo: 3
   timeBetweenShots: 2
   isAutomatic: 0
+  prefabShotgunBlast: {fileID: 5932694787902198530, guid: 29efa2998464c714da23096195430c9e, type: 3}
 --- !u!1 &4182507051445114486
 GameObject:
   m_ObjectHideFlags: 0
