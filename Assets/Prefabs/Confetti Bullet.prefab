@@ -136,7 +136,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confetti: {fileID: 215767831792691104, guid: 664b1a5bc0f5b2545af10e286e160a6d, type: 3}
+  confettiSound: {fileID: 8300000, guid: f163707c3683a3a4cb8d9c8781fefa76, type: 3}
 --- !u!1001 &1282681860355926533
 PrefabInstance:
   m_ObjectHideFlags: 0
