@@ -2,14 +2,14 @@ public class StateMachine
 {
     State currentState;
 
-    public StateMachine(State initialState)
+    public void Initialize(State initialState)
     {
         ChangeState(initialState);
     }
 
     public void ChangeState(State newState)
     {
-        currentState?.ExitState();
+        //currentState?.ExitState();
         currentState = newState;
         currentState.EnterState();
     }
@@ -23,6 +23,13 @@ public class StateMachine
 
 public class State
 {
+    protected StateMachine myStateMachine;
+
+    public State(StateMachine m)
+    {
+        myStateMachine = m;
+    }
+
     public virtual void UpdateState()
     {
 

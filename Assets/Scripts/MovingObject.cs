@@ -7,7 +7,8 @@ public class MovingObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myStateMachine = new StateMachine(new State());
+        myStateMachine = new StateMachine();
+        myStateMachine.Initialize(new StateIdle(myStateMachine));
     }
 
     // Update is called once per frame
