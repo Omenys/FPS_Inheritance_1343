@@ -1954,8 +1954,8 @@ GameObject:
   - component: {fileID: 679253179}
   - component: {fileID: 679253178}
   - component: {fileID: 679253177}
-  - component: {fileID: 679253176}
   - component: {fileID: 679253175}
+  - component: {fileID: 679253181}
   m_Layer: 0
   m_Name: Jeff Jr.
   m_TagString: Untagged
@@ -1985,19 +1985,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &679253176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679253174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4e47f53f01fac44eb4d3c4813e9272d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLocation: {fileID: 2071811435}
 --- !u!136 &679253177
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2086,6 +2073,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &679253181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679253174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c7cc5505c301347ab92d1395708d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 679253175}
+  playerLocation: {fileID: 2071811435}
+  wanderRange: 5
+  startingLocation: {x: 0, y: 0, z: 0}
+  playerSightRange: 10
+  playerAttackRange: 2
+  currentStateElapsed: 0
+  recoveryTime: 2
 --- !u!43 &684643362
 Mesh:
   m_ObjectHideFlags: 0

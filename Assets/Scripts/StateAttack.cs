@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class StateAttack : State
 {
-    float elapsedTime = 0;
     public StateAttack(StateMachine m) : base(m)
     {
 
@@ -11,11 +10,7 @@ public class StateAttack : State
     public override void UpdateState()
     {
         Debug.Log("I'm attacking");
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime > 8)
-        {
-            myStateMachine.ChangeState(new StateIdle(myStateMachine));
-        }
+
     }
     public override void EnterState()
     {

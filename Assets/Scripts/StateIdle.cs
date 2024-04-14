@@ -2,17 +2,20 @@ using UnityEngine;
 
 public class StateIdle : State
 {
-    float elapsedTime = 0;
+
     public StateIdle(StateMachine m) : base(m)
     {
-
     }
 
     public override void UpdateState()
     {
         Debug.Log("I'm idle!");
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime > 2)
+
+        // Update time 
+        myStateMachine.owner.currentStateElapsed += Time.deltaTime;
+
+        // If the time has been longer than the recovery time, switch to wander
+        if (myStateMachine.owner.currentStateElapsed >= myStateMachine.owner.recoveryTime)
         {
             myStateMachine.ChangeState(new StateWander(myStateMachine));
         }
@@ -20,6 +23,9 @@ public class StateIdle : State
     public override void EnterState()
     {
         Debug.Log("Start idle");
+
+        // Reset idle timer
+        myStateMachine.owner.currentStateElapsed = 0;
     }
 
     public override void ExitState()

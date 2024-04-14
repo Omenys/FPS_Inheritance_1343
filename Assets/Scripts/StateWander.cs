@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StateWander : State
 {
-    float elapsedTime = 0;
+    float stopDistance = 0.5f;
     public StateWander(StateMachine m) : base(m)
     {
 
@@ -11,19 +11,24 @@ public class StateWander : State
     public override void UpdateState()
     {
         Debug.Log("I'm wandering");
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime > 4)
+
+        if (myStateMachine.owner.agent.remainingDistance < stopDistance)
         {
-            myStateMachine.ChangeState(new StatePursue(myStateMachine));
+            myStateMachine.ChangeState(new StateIdle(myStateMachine));
         }
+
     }
     public override void EnterState()
     {
         Debug.Log("Start wandering");
+
+        // Set a random destination at start of state
+        myStateMachine.owner.GoToRandomPoint();
     }
 
     public override void ExitState()
     {
         Debug.Log("Stop wandering");
     }
+
 }

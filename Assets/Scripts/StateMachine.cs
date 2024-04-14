@@ -1,9 +1,11 @@
 public class StateMachine
 {
     State currentState;
+    public MovingObject owner; // getter and setter would be better
 
-    public void Initialize(State initialState)
+    public void Initialize(MovingObject mo, State initialState)
     {
+        owner = mo;
         ChangeState(initialState);
     }
 
