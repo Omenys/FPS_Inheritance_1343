@@ -2089,7 +2089,7 @@ MonoBehaviour:
   playerLocation: {fileID: 2071811435}
   wanderRange: 5
   startingLocation: {x: 0, y: 0, z: 0}
-  playerSightRange: 10
+  playerSightRange: 6
   playerAttackRange: 2
   currentStateElapsed: 0
   recoveryTime: 2

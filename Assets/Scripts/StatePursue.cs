@@ -11,6 +11,14 @@ public class StatePursue : State
     {
         Debug.Log("I'm pursuing");
 
+        float playerDistance = Vector3.Distance(myStateMachine.owner.agent.transform.position, myStateMachine.owner.playerLocation.position);
+        myStateMachine.owner.agent.SetDestination(myStateMachine.owner.playerLocation.position);
+
+        // If player distance is outside of enemy vision, switch back to wander
+        if (playerDistance > myStateMachine.owner.playerSightRange)
+        {
+            myStateMachine.ChangeState(new StateWander(myStateMachine));
+        }
     }
     public override void EnterState()
     {
