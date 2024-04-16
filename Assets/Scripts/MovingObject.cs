@@ -12,7 +12,7 @@ public class MovingObject : MonoBehaviour
     public float playerSightRange = 10.0f;
     public float playerAttackRange = 2.0f;
     public float currentStateElapsed = 0f;
-    public float recoveryTime = 2f;
+    public float recoveryTime = 5f;
 
 
 
@@ -53,5 +53,14 @@ public class MovingObject : MonoBehaviour
             return hit.position;
         }
         return Vector3.zero;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player took damage!");
+            myStateMachine.ChangeState(new StateRecovery(myStateMachine));
+        }
     }
 }
