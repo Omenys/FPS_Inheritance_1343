@@ -13,7 +13,7 @@ public class StateRecovery : State
         Debug.Log("I'm recovering");
 
         // Update recovery timer
-        timeInRecovery = Time.deltaTime;
+        timeInRecovery += Time.deltaTime;
 
         // If recovery time is met, go back to pursue state
         if (timeInRecovery >= myStateMachine.owner.recoveryTime)

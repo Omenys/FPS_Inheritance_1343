@@ -2093,7 +2093,7 @@ MonoBehaviour:
   playerSightRange: 8
   playerAttackRange: 2
   currentStateElapsed: 0
-  recoveryTime: 5
+  recoveryTime: 2
 --- !u!54 &679253182
 Rigidbody:
   m_ObjectHideFlags: 0
