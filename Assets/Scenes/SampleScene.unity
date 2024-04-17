@@ -1957,7 +1957,7 @@ GameObject:
   - component: {fileID: 679253175}
   - component: {fileID: 679253181}
   - component: {fileID: 679253182}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Jeff Jr.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2127,7 +2127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh32718
+  m_Name: pb_Mesh24184
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
