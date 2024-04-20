@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FPSController : MonoBehaviour
 {
@@ -26,13 +26,15 @@ public class FPSController : MonoBehaviour
     int gunIndex = 0;
     Gun currentGun = null;
 
+    Vector2 movementInput;
+
     // properties
     public GameObject Cam { get { return cam; } }
-    
+
 
     private void Awake()
     {
-        
+
     }
 
     // Start is called before the first frame update
@@ -42,7 +44,7 @@ public class FPSController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         // start with a gun
-        if(initialGun != null)
+        if (initialGun != null)
             AddGun(initialGun);
 
         origin = transform.position;
@@ -66,19 +68,19 @@ public class FPSController : MonoBehaviour
     {
         grounded = controller.isGrounded;
 
-        if(grounded && velocity.y < 0)
+        if (grounded && velocity.y < 0)
         {
             velocity.y = -1;// -0.5f;
         }
 
         Vector2 movement = GetPlayerMovementVector();
-        Vector3 move = transform.right * movement.x + transform.forward * movement.y;
+        Vector3 move = (transform.right * movement.x) + (transform.forward * movement.y);
         controller.Move(move * movementSpeed * (GetSprint() ? 2 : 1) * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        /*if (Input.GetButtonDown("Jump") && grounded)
         {
             velocity.y += Mathf.Sqrt (jumpForce * -1 * gravity);
-        }
+        }*/
 
         velocity.y += gravity * Time.deltaTime;
 
@@ -104,7 +106,7 @@ public class FPSController : MonoBehaviour
         if (equippedGuns.Count == 0)
             return;
 
-        if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             gunIndex++;
             if (gunIndex > equippedGuns.Count - 1)
@@ -130,13 +132,13 @@ public class FPSController : MonoBehaviour
             return;
 
         // pressed the fire button
-        if(GetPressFire())
+        if (GetPressFire())
         {
             currentGun?.AttemptFire();
         }
 
         // holding the fire button (for automatic)
-        else if(GetHoldFire())
+        else if (GetHoldFire())
         {
             if (currentGun.AttemptAutomaticFire())
                 currentGun?.AttemptFire();
@@ -218,6 +220,22 @@ public class FPSController : MonoBehaviour
     bool GetSprint()
     {
         return Input.GetButton("Sprint");
+
+    }
+
+    // Methods for New Input System
+    public void OnJump()
+    {
+        if (grounded)
+        {
+            velocity.y += Mathf.Sqrt(jumpForce * -1 * gravity);
+        }
+    }
+
+    public void OnMovement(InputValue value)
+    {
+
+        movementInput = value.Get<Vector2>();
     }
 
     // Collision methods
@@ -229,10 +247,10 @@ public class FPSController : MonoBehaviour
         {
             var collisionPoint = hit.collider.ClosestPoint(transform.position);
             var knockbackAngle = (transform.position - collisionPoint).normalized;
-            velocity = (20 * knockbackAngle);
+            velocity = 20 * knockbackAngle;
         }
 
-        if (hit.gameObject.GetComponent <KillZone>())
+        if (hit.gameObject.GetComponent<KillZone>())
         {
             Respawn();
         }
