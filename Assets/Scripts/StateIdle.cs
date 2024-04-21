@@ -9,7 +9,7 @@ public class StateIdle : State
 
     public override void UpdateState()
     {
-        Debug.Log("I'm idle!");
+        //Debug.Log("I'm idle!");
 
         // Update time 
         myStateMachine.owner.currentStateElapsed += Time.deltaTime;
@@ -22,13 +22,13 @@ public class StateIdle : State
     }
     public override void EnterState()
     {
-        Debug.Log("Start idle");
+        //Debug.Log("Start idle");
 
         // Reset idle timer
         myStateMachine.owner.currentStateElapsed = 0;
     }
     public override void ExitState()
     {
-        Debug.Log("Stop idle");
+        //Debug.Log("Stop idle");
     }
 }

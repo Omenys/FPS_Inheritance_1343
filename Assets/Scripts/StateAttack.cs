@@ -13,7 +13,7 @@ public class StateAttack : State
 
     public override void UpdateState()
     {
-        Debug.Log("I'm attacking!");
+        //Debug.Log("I'm attacking!");
 
         // Get distance to player
         float distanceToPlayer = Vector3.Distance(myStateMachine.owner.transform.position, myStateMachine.owner.playerLocation.position);
@@ -28,7 +28,7 @@ public class StateAttack : State
 
     public override void EnterState()
     {
-        Debug.Log("Start attacking");
+        //Debug.Log("Start attacking");
 
         // Get direction towards the player 
         attackDirection = (myStateMachine.owner.playerLocation.position - myStateMachine.owner.transform.position).normalized;
@@ -46,7 +46,7 @@ public class StateAttack : State
 
     public override void ExitState()
     {
-        Debug.Log("Stop attacking");
+        //Debug.Log("Stop attacking");
 
         // Turn kinematic on
         myStateMachine.owner.GetComponent<Rigidbody>().isKinematic = true;

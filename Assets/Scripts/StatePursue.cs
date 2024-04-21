@@ -9,7 +9,7 @@ public class StatePursue : State
 
     public override void UpdateState()
     {
-        Debug.Log("I'm pursuing");
+        // Debug.Log("I'm pursuing");
 
         float playerDistance = Vector3.Distance(myStateMachine.owner.agent.transform.position, myStateMachine.owner.playerLocation.position);
         myStateMachine.owner.agent.SetDestination(myStateMachine.owner.playerLocation.position);
@@ -27,13 +27,13 @@ public class StatePursue : State
     }
     public override void EnterState()
     {
-        Debug.Log("Start pursuing");
+        // Debug.Log("Start pursuing");
 
     }
 
     public override void ExitState()
     {
-        Debug.Log("Stop pursuing");
+        // Debug.Log("Stop pursuing");
     }
 }
 

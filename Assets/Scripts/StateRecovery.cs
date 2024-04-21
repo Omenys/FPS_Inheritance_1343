@@ -10,7 +10,7 @@ public class StateRecovery : State
 
     public override void UpdateState()
     {
-        Debug.Log("I'm recovering");
+        //Debug.Log("I'm recovering");
 
         // Update recovery timer
         timeInRecovery += Time.deltaTime;
@@ -25,7 +25,7 @@ public class StateRecovery : State
     }
     public override void EnterState()
     {
-        Debug.Log("Start recovering");
+        //Debug.Log("Start recovering");
 
         // Reset recovery timer
         timeInRecovery = 0;
@@ -33,7 +33,7 @@ public class StateRecovery : State
 
     public override void ExitState()
     {
-        Debug.Log("Stop recovering");
+        //Debug.Log("Stop recovering");
     }
 
 }

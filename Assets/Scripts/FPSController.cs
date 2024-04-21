@@ -25,8 +25,7 @@ public class FPSController : MonoBehaviour
     List<Gun> equippedGuns = new List<Gun>();
     int gunIndex = 0;
     Gun currentGun = null;
-
-
+    bool isSprinting = false;
 
     // properties
     public GameObject Cam { get { return cam; } }
@@ -48,6 +47,8 @@ public class FPSController : MonoBehaviour
             AddGun(initialGun);
 
         origin = transform.position;
+
+
     }
 
     // Update is called once per frame
@@ -75,7 +76,7 @@ public class FPSController : MonoBehaviour
 
         Vector2 movement = GetPlayerMovementVector();
         Vector3 move = (transform.right * movement.x) + (transform.forward * movement.y);
-        controller.Move(move * movementSpeed * (GetSprint() ? 2 : 1) * Time.deltaTime);
+        controller.Move(move * movementSpeed * (isSprinting ? 2 : 1) * Time.deltaTime);
 
         /*if (Input.GetButtonDown("Jump") && grounded)
         {
@@ -217,10 +218,10 @@ public class FPSController : MonoBehaviour
         return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
     }
 
-    bool GetSprint()
+    /*bool GetSprint()
     {
         return Input.GetButton("Sprint");
-    }
+    }*/
 
     // Methods for New Input System
     public void OnJump()
@@ -231,15 +232,28 @@ public class FPSController : MonoBehaviour
         }
     }
 
+    public void OnSprint(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            isSprinting = true;
+        }
+        else if (ctx.canceled)
+        {
+            isSprinting = false;
+        }
+
+    }
+
     public void OnMovement(InputValue value)
     {
         Vector2 movement = value.Get<Vector2>();
         Debug.Log("Input value: " + movement);
         Vector3 move = (transform.right * movement.x) + (transform.forward * movement.y);
-        controller.Move(move.normalized * movementSpeed * (GetSprint() ? 2 : 1) * Time.deltaTime);
+        controller.Move(move.normalized * movementSpeed * (isSprinting ? 2 : 1) * Time.deltaTime);
     }
 
-    //public bool OnSprint()
+
 
     // Collision methods
 

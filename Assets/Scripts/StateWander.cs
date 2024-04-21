@@ -11,7 +11,7 @@ public class StateWander : State
 
     public override void UpdateState()
     {
-        Debug.Log("I'm wandering");
+        // Debug.Log("I'm wandering");
         float playerDistance = Vector3.Distance(myStateMachine.owner.agent.transform.position, myStateMachine.owner.playerLocation.position);
 
         // If enemy sees or is near player, switch to pursue
@@ -30,7 +30,7 @@ public class StateWander : State
     }
     public override void EnterState()
     {
-        Debug.Log("Start wandering");
+        // Debug.Log("Start wandering");
 
         // Set a random destination at start of state
         myStateMachine.owner.GoToRandomPoint();
@@ -38,7 +38,7 @@ public class StateWander : State
 
     public override void ExitState()
     {
-        Debug.Log("Stop wandering");
+        // Debug.Log("Stop wandering");
     }
 
 }
