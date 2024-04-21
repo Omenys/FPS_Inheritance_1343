@@ -11,9 +11,9 @@ public class FPSController : MonoBehaviour
     [SerializeField] Gun initialGun;
 
     // stats
-    [SerializeField] float movementSpeed = 10.0f;
-    [SerializeField] float lookSensitivityX = 1.0f;
-    [SerializeField] float lookSensitivityY = 1.0f;
+    [SerializeField] float movementSpeed = 2.0f;
+    [SerializeField] float lookSensitivityX = 1f;
+    [SerializeField] float lookSensitivityY = 1f;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float jumpForce = 10;
 
@@ -48,15 +48,27 @@ public class FPSController : MonoBehaviour
 
         origin = transform.position;
 
+        //InputManager.controls.Player.Sprint.performed += OnSprint;
+        //InputManager.controls.Player.Sprint.canceled -= OnSprint;
+    }
+
+    void OnEnable()
+    {
         InputManager.controls.Player.Sprint.performed += OnSprint;
+        InputManager.controls.Player.Look.performed += OnLook;
+    }
+
+    void OnDisable()
+    {
         InputManager.controls.Player.Sprint.canceled -= OnSprint;
+        InputManager.controls.Player.Look.canceled -= OnLook;
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
-        Look();
+        //Look();
         HandleSwitchGun();
         FireGun();
 
@@ -89,7 +101,7 @@ public class FPSController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void Look()
+    /*void Look()
     {
         Vector2 looking = GetPlayerLook();
         float lookX = looking.x * lookSensitivityX * Time.deltaTime;
@@ -101,7 +113,7 @@ public class FPSController : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         transform.Rotate(Vector3.up * lookX);
-    }
+    }*/
 
     void HandleSwitchGun()
     {
@@ -258,6 +270,19 @@ public class FPSController : MonoBehaviour
         controller.Move(move.normalized * movementSpeed * (isSprinting ? 2 : 1) * Time.deltaTime);
     }
 
+    public void OnLook(InputAction.CallbackContext ctx)
+    {
+        Vector2 looking = ctx.ReadValue<Vector2>() * 0.1f;
+        float lookX = looking.x * lookSensitivityX * Time.deltaTime;
+        float lookY = looking.y * lookSensitivityY * Time.deltaTime;
+
+        xRotation -= lookY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        transform.Rotate(Vector3.up * lookX);
+
+    }
 
 
     // Collision methods

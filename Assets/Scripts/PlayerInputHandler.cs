@@ -23,7 +23,6 @@ public class PlayerInputHandler : MonoBehaviour
         }
 
         controls.Enable();
-
     }
 
     private void OnDisable()
@@ -33,7 +32,6 @@ public class PlayerInputHandler : MonoBehaviour
             controls = new IA_Player();
         }
         controls.Disable();
-
     }
     // Update is called once per frame
     void Update()

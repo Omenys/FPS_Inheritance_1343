@@ -238,7 +238,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""id"": ""3f56115c-43ea-4a5b-8927-e8cc37bd47d9"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,
