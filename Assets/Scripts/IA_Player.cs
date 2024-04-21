@@ -47,53 +47,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""b8bd4e04-a56b-4a07-adc2-2c5bbd56c52b"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""SwitchGun"",
-                    ""type"": ""Value"",
-                    ""id"": ""700260a9-df80-4b0c-b35c-bf3ecbf75f26"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""FireGun"",
-                    ""type"": ""Button"",
-                    ""id"": ""e7219fcd-b067-44e6-9c19-03ccdab65769"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Reload"",
-                    ""type"": ""Button"",
-                    ""id"": ""391d8218-4b5f-4316-909d-33dad785c22e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HoldFire"",
-                    ""type"": ""Button"",
-                    ""id"": ""0dd4f73d-d407-44dd-b6fa-0033940a9a79"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Sprint"",
-                    ""type"": ""Button"",
-                    ""id"": ""1dfad16a-131b-460a-b9f5-33da3e51bdcd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -236,132 +191,11 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3f56115c-43ea-4a5b-8927-e8cc37bd47d9"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4cfc8716-e577-4f23-9405-edbe7767d801"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""82b5b4c1-7112-4f18-97df-da99603b0304"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchGun"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""327951e6-2dba-4aa7-9a50-ae4ad0491a2b"",
-                    ""path"": ""<Mouse>/scroll"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchGun"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b835a672-bd37-4495-ac64-eadb4cef6afb"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FireGun"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7bfbc276-2f2b-43d9-be11-ef84758f4f2f"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FireGun"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7693bd49-d1a2-45ec-8a18-00387e0b8562"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reload"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3a4adb4b-4827-4df1-9011-28ed1061edbe"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reload"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2ce8c381-d170-4754-8f11-70d6b2b08a7f"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HoldFire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3bfeeeeb-e9b4-46e1-a055-d01d198e04f4"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HoldFire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6b4cd6f9-480e-4009-b72e-be3c867bc38b"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""67458737-a5d7-4889-bd63-d29d49e61239"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -385,18 +219,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ae430c9e-9ace-4ee3-952d-0def1a900d9f"",
-                    ""path"": ""<Keyboard>/p"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6cabcd08-5e1a-4d75-8513-a6d99164250c"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -414,11 +237,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_SwitchGun = m_Player.FindAction("SwitchGun", throwIfNotFound: true);
-        m_Player_FireGun = m_Player.FindAction("FireGun", throwIfNotFound: true);
-        m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
-        m_Player_HoldFire = m_Player.FindAction("HoldFire", throwIfNotFound: true);
-        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -486,11 +304,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_SwitchGun;
-    private readonly InputAction m_Player_FireGun;
-    private readonly InputAction m_Player_Reload;
-    private readonly InputAction m_Player_HoldFire;
-    private readonly InputAction m_Player_Sprint;
     public struct PlayerActions
     {
         private @IA_Player m_Wrapper;
@@ -498,11 +311,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @SwitchGun => m_Wrapper.m_Player_SwitchGun;
-        public InputAction @FireGun => m_Wrapper.m_Player_FireGun;
-        public InputAction @Reload => m_Wrapper.m_Player_Reload;
-        public InputAction @HoldFire => m_Wrapper.m_Player_HoldFire;
-        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -521,21 +329,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @SwitchGun.started += instance.OnSwitchGun;
-            @SwitchGun.performed += instance.OnSwitchGun;
-            @SwitchGun.canceled += instance.OnSwitchGun;
-            @FireGun.started += instance.OnFireGun;
-            @FireGun.performed += instance.OnFireGun;
-            @FireGun.canceled += instance.OnFireGun;
-            @Reload.started += instance.OnReload;
-            @Reload.performed += instance.OnReload;
-            @Reload.canceled += instance.OnReload;
-            @HoldFire.started += instance.OnHoldFire;
-            @HoldFire.performed += instance.OnHoldFire;
-            @HoldFire.canceled += instance.OnHoldFire;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -549,21 +342,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @SwitchGun.started -= instance.OnSwitchGun;
-            @SwitchGun.performed -= instance.OnSwitchGun;
-            @SwitchGun.canceled -= instance.OnSwitchGun;
-            @FireGun.started -= instance.OnFireGun;
-            @FireGun.performed -= instance.OnFireGun;
-            @FireGun.canceled -= instance.OnFireGun;
-            @Reload.started -= instance.OnReload;
-            @Reload.performed -= instance.OnReload;
-            @Reload.canceled -= instance.OnReload;
-            @HoldFire.started -= instance.OnHoldFire;
-            @HoldFire.performed -= instance.OnHoldFire;
-            @HoldFire.canceled -= instance.OnHoldFire;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -632,11 +410,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnSwitchGun(InputAction.CallbackContext context);
-        void OnFireGun(InputAction.CallbackContext context);
-        void OnReload(InputAction.CallbackContext context);
-        void OnHoldFire(InputAction.CallbackContext context);
-        void OnSprint(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

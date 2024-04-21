@@ -11,7 +11,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] Gun initialGun;
 
     // stats
-    [SerializeField] float movementSpeed = 2.0f;
+    [SerializeField] float movementSpeed = 10.0f;
     [SerializeField] float lookSensitivityX = 1.0f;
     [SerializeField] float lookSensitivityY = 1.0f;
     [SerializeField] float gravity = -9.81f;
@@ -26,7 +26,7 @@ public class FPSController : MonoBehaviour
     int gunIndex = 0;
     Gun currentGun = null;
 
-    Vector2 movementInput;
+
 
     // properties
     public GameObject Cam { get { return cam; } }
@@ -220,7 +220,6 @@ public class FPSController : MonoBehaviour
     bool GetSprint()
     {
         return Input.GetButton("Sprint");
-
     }
 
     // Methods for New Input System
@@ -234,9 +233,13 @@ public class FPSController : MonoBehaviour
 
     public void OnMovement(InputValue value)
     {
-
-        movementInput = value.Get<Vector2>();
+        Vector2 movement = value.Get<Vector2>();
+        Debug.Log("Input value: " + movement);
+        Vector3 move = (transform.right * movement.x) + (transform.forward * movement.y);
+        controller.Move(move.normalized * movementSpeed * (GetSprint() ? 2 : 1) * Time.deltaTime);
     }
+
+    //public bool OnSprint()
 
     // Collision methods
 
