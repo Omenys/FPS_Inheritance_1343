@@ -48,7 +48,8 @@ public class FPSController : MonoBehaviour
 
         origin = transform.position;
 
-
+        InputManager.controls.Player.Sprint.performed += OnSprint;
+        InputManager.controls.Player.Sprint.canceled -= OnSprint;
     }
 
     // Update is called once per frame
@@ -236,12 +237,16 @@ public class FPSController : MonoBehaviour
     {
         if (ctx.performed)
         {
-            isSprinting = true;
+            if (!isSprinting)
+            {
+                isSprinting = true;
+            }
+            else
+            {
+                isSprinting = false;
+            }
         }
-        else if (ctx.canceled)
-        {
-            isSprinting = false;
-        }
+
 
     }
 

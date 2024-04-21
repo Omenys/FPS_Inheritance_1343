@@ -96,7 +96,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""id"": ""1dfad16a-131b-460a-b9f5-33da3e51bdcd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -391,7 +391,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""6b4cd6f9-480e-4009-b72e-be3c867bc38b"",
                     ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sprint"",
@@ -402,7 +402,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""67458737-a5d7-4889-bd63-d29d49e61239"",
                     ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sprint"",
