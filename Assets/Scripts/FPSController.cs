@@ -54,14 +54,16 @@ public class FPSController : MonoBehaviour
 
     void OnEnable()
     {
+        InputManager.controls.Player.Jump.performed += OnJump;
         InputManager.controls.Player.Sprint.performed += OnSprint;
         InputManager.controls.Player.Look.performed += OnLook;
     }
 
     void OnDisable()
     {
-        InputManager.controls.Player.Sprint.canceled -= OnSprint;
-        InputManager.controls.Player.Look.canceled -= OnLook;
+        InputManager.controls.Player.Jump.performed -= OnJump;
+        InputManager.controls.Player.Sprint.performed -= OnSprint;
+        InputManager.controls.Player.Look.performed -= OnLook;
     }
 
     // Update is called once per frame
@@ -237,11 +239,14 @@ public class FPSController : MonoBehaviour
     }*/
 
     // Methods for New Input System
-    public void OnJump()
+    public void OnJump(InputAction.CallbackContext ctx)
     {
-        if (grounded)
+        if (ctx.performed)
         {
-            velocity.y += Mathf.Sqrt(jumpForce * -1 * gravity);
+            if (grounded)
+            {
+                velocity.y += Mathf.Sqrt(jumpForce * -1 * gravity);
+            }
         }
     }
 
