@@ -58,7 +58,7 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""name"": ""SwitchGun"",
                     ""type"": ""Value"",
                     ""id"": ""700260a9-df80-4b0c-b35c-bf3ecbf75f26"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -69,22 +69,13 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""id"": ""e7219fcd-b067-44e6-9c19-03ccdab65769"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Reload"",
                     ""type"": ""Button"",
                     ""id"": ""391d8218-4b5f-4316-909d-33dad785c22e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HoldFire"",
-                    ""type"": ""Button"",
-                    ""id"": ""0dd4f73d-d407-44dd-b6fa-0033940a9a79"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -301,17 +292,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""82b5b4c1-7112-4f18-97df-da99603b0304"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchGun"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""327951e6-2dba-4aa7-9a50-ae4ad0491a2b"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
@@ -322,10 +302,65 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""753f226d-1018-410a-ba91-64ec051294e8"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchGun"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0cb88cda-4022-4ffd-b8aa-6692a79d23f1"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b10d2670-ad85-4078-8a9a-caace0252c3e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""3e1990b9-9ab1-4daf-b19b-4ab3f99f09ee"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ce734006-8a39-43e1-bb63-0ca44c1d9935"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""b835a672-bd37-4495-ac64-eadb4cef6afb"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FireGun"",
@@ -362,28 +397,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Reload"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2ce8c381-d170-4754-8f11-70d6b2b08a7f"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HoldFire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3bfeeeeb-e9b4-46e1-a055-d01d198e04f4"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HoldFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -461,7 +474,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Player_SwitchGun = m_Player.FindAction("SwitchGun", throwIfNotFound: true);
         m_Player_FireGun = m_Player.FindAction("FireGun", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
-        m_Player_HoldFire = m_Player.FindAction("HoldFire", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -533,7 +545,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SwitchGun;
     private readonly InputAction m_Player_FireGun;
     private readonly InputAction m_Player_Reload;
-    private readonly InputAction m_Player_HoldFire;
     private readonly InputAction m_Player_Sprint;
     public struct PlayerActions
     {
@@ -545,7 +556,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         public InputAction @SwitchGun => m_Wrapper.m_Player_SwitchGun;
         public InputAction @FireGun => m_Wrapper.m_Player_FireGun;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
-        public InputAction @HoldFire => m_Wrapper.m_Player_HoldFire;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -574,9 +584,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
-            @HoldFire.started += instance.OnHoldFire;
-            @HoldFire.performed += instance.OnHoldFire;
-            @HoldFire.canceled += instance.OnHoldFire;
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
@@ -602,9 +609,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
-            @HoldFire.started -= instance.OnHoldFire;
-            @HoldFire.performed -= instance.OnHoldFire;
-            @HoldFire.canceled -= instance.OnHoldFire;
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
@@ -679,7 +683,6 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         void OnSwitchGun(InputAction.CallbackContext context);
         void OnFireGun(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
-        void OnHoldFire(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
     }
     public interface IUIActions

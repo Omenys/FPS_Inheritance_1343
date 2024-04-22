@@ -36,7 +36,7 @@
                     "name": "SwitchGun",
                     "type": "Value",
                     "id": "700260a9-df80-4b0c-b35c-bf3ecbf75f26",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -47,22 +47,13 @@
                     "id": "e7219fcd-b067-44e6-9c19-03ccdab65769",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "Reload",
                     "type": "Button",
                     "id": "391d8218-4b5f-4316-909d-33dad785c22e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "HoldFire",
-                    "type": "Button",
-                    "id": "0dd4f73d-d407-44dd-b6fa-0033940a9a79",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -279,17 +270,6 @@
                 },
                 {
                     "name": "",
-                    "id": "82b5b4c1-7112-4f18-97df-da99603b0304",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchGun",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "327951e6-2dba-4aa7-9a50-ae4ad0491a2b",
                     "path": "<Mouse>/scroll",
                     "interactions": "",
@@ -300,10 +280,65 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "Gamepad",
+                    "id": "753f226d-1018-410a-ba91-64ec051294e8",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchGun",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "0cb88cda-4022-4ffd-b8aa-6692a79d23f1",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchGun",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b10d2670-ad85-4078-8a9a-caace0252c3e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchGun",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "3e1990b9-9ab1-4daf-b19b-4ab3f99f09ee",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchGun",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ce734006-8a39-43e1-bb63-0ca44c1d9935",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchGun",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "b835a672-bd37-4495-ac64-eadb4cef6afb",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "FireGun",
@@ -340,28 +375,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2ce8c381-d170-4754-8f11-70d6b2b08a7f",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HoldFire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3bfeeeeb-e9b4-46e1-a055-d01d198e04f4",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HoldFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

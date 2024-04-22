@@ -26,6 +26,7 @@ public class FPSController : MonoBehaviour
     int gunIndex = 0;
     Gun currentGun = null;
     bool isSprinting = false;
+    bool isFiring = false;
 
     // properties
     public GameObject Cam { get { return cam; } }
@@ -57,6 +58,9 @@ public class FPSController : MonoBehaviour
         InputManager.controls.Player.Jump.performed += OnJump;
         InputManager.controls.Player.Sprint.performed += OnSprint;
         InputManager.controls.Player.Look.performed += OnLook;
+        InputManager.controls.Player.SwitchGun.performed += OnSwitchGun;
+        InputManager.controls.Player.FireGun.performed += OnFireGun;
+
     }
 
     void OnDisable()
@@ -64,6 +68,9 @@ public class FPSController : MonoBehaviour
         InputManager.controls.Player.Jump.performed -= OnJump;
         InputManager.controls.Player.Sprint.performed -= OnSprint;
         InputManager.controls.Player.Look.performed -= OnLook;
+        InputManager.controls.Player.SwitchGun.performed -= OnSwitchGun;
+        InputManager.controls.Player.FireGun.performed -= OnFireGun;
+
     }
 
     // Update is called once per frame
@@ -71,8 +78,8 @@ public class FPSController : MonoBehaviour
     {
         Movement();
         //Look();
-        HandleSwitchGun();
-        FireGun();
+        //HandleSwitchGun();
+        //FireGun();
 
         // always go back to "no velocity"
         // "velocity" is for movement speed that we gain in addition to our movement (falling, knockback, etc.)
@@ -117,7 +124,7 @@ public class FPSController : MonoBehaviour
         transform.Rotate(Vector3.up * lookX);
     }*/
 
-    void HandleSwitchGun()
+    /*void HandleSwitchGun()
     {
         if (equippedGuns.Count == 0)
             return;
@@ -139,9 +146,9 @@ public class FPSController : MonoBehaviour
 
             EquipGun(equippedGuns[gunIndex]);
         }
-    }
+    }*/
 
-    void FireGun()
+    /*void FireGun()
     {
         // don't fire if we don't have a gun
         if (currentGun == null)
@@ -165,7 +172,7 @@ public class FPSController : MonoBehaviour
         {
             currentGun?.AttemptAltFire();
         }
-    }
+    }*/
 
     void EquipGun(Gun g)
     {
@@ -208,35 +215,35 @@ public class FPSController : MonoBehaviour
 
     // Input methods
 
-    bool GetPressFire()
-    {
-        return Input.GetButtonDown("Fire1");
-    }
+    /* bool GetPressFire()
+     {
+         return Input.GetButtonDown("Fire1");
+     }
 
-    bool GetHoldFire()
-    {
-        return Input.GetButton("Fire1");
-    }
+     bool GetHoldFire()
+     {
+         return Input.GetButton("Fire1");
+     }
 
-    bool GetPressAltFire()
-    {
-        return Input.GetButtonDown("Fire2");
-    }
+     bool GetPressAltFire()
+     {
+         return Input.GetButtonDown("Fire2");
+     }
+
+     Vector2 GetPlayerLook()
+     {
+         return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+     }
+
+     bool GetSprint()
+     {
+         return Input.GetButton("Sprint");
+     }*/
 
     Vector2 GetPlayerMovementVector()
     {
         return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
-
-    Vector2 GetPlayerLook()
-    {
-        return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-    }
-
-    /*bool GetSprint()
-    {
-        return Input.GetButton("Sprint");
-    }*/
 
     // Methods for New Input System
     public void OnJump(InputAction.CallbackContext ctx)
@@ -288,6 +295,50 @@ public class FPSController : MonoBehaviour
         transform.Rotate(Vector3.up * lookX);
 
     }
+
+    public void OnSwitchGun(InputAction.CallbackContext ctx)
+    {
+        if (equippedGuns.Count == 0)
+            return;
+
+        float scrollValue = ctx.ReadValue<Vector2>().y;
+
+        if (scrollValue > 0)
+        {
+            gunIndex++;
+            if (gunIndex > equippedGuns.Count - 1)
+                gunIndex = 0;
+
+            EquipGun(equippedGuns[gunIndex]);
+        }
+
+        else if (scrollValue < 0)
+        {
+            gunIndex--;
+            if (gunIndex < 0)
+                gunIndex = equippedGuns.Count - 1;
+
+            EquipGun(equippedGuns[gunIndex]);
+        }
+
+    }
+
+    public void OnFireGun(InputAction.CallbackContext ctx)
+    {
+        if (currentGun == null)
+            return;
+
+        if (ctx.performed)
+        {
+            currentGun?.AttemptFire();
+            if (currentGun.AttemptAutomaticFire())
+            {
+                currentGun?.AttemptFire();
+            }
+
+        }
+    }
+
 
 
     // Collision methods
