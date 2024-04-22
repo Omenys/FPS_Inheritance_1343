@@ -323,6 +323,7 @@ public class FPSController : MonoBehaviour
 
     }
 
+    // TO DO: FIX AUTOMATIC FIRING 
     public void OnFireGun(InputAction.CallbackContext ctx)
     {
         if (currentGun == null)
@@ -331,7 +332,9 @@ public class FPSController : MonoBehaviour
         if (ctx.performed)
         {
             currentGun?.AttemptFire();
-            if (currentGun.AttemptAutomaticFire())
+            isFiring = true;
+
+            if (isFiring && currentGun.AttemptAutomaticFire())
             {
                 currentGun?.AttemptFire();
             }
