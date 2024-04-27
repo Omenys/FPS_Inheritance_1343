@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // gun base class
@@ -20,6 +18,11 @@ public class Gun : MonoBehaviour
     // private variables
     protected int ammo;
     protected float elapsed = 0;
+
+    public int GetAmmo()
+    {
+        return ammo;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +64,7 @@ public class Gun : MonoBehaviour
             return false;
         }
 
-        if(elapsed < timeBetweenShots)
+        if (elapsed < timeBetweenShots)
         {
             return false;
         }

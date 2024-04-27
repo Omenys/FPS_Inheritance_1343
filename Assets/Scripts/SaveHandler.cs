@@ -41,8 +41,21 @@ public class SaveHandler : MonoBehaviour
     {
         try
         {
+            FPSController player = FindObjectOfType<FPSController>();
+
             SaveData sd = new SaveData();
             sd.playerPosition = FindObjectOfType<FPSController>().transform.position;
+            Debug.Log("Saved player position: " + sd.playerPosition);
+
+            sd.playerHealth = FindObjectOfType<FPSController>().health;
+            Debug.Log("Saved player health: " + sd.playerHealth);
+
+            sd.currentAmmo = FindObjectOfType<Gun>().GetAmmo();
+            Debug.Log("Saved ammo: " + sd.currentAmmo);
+
+            sd.currentGunIndex = FindObjectOfType<FPSController>().GetCurrentGun();
+            Debug.Log("Saved current gun: " + sd.currentGunIndex);
+
 
             string jsonText = JsonUtility.ToJson(sd);
             Debug.Log(jsonText);
@@ -51,7 +64,7 @@ public class SaveHandler : MonoBehaviour
 
             Debug.Log("Saved data to: " + path);
         }
-        catch (System.IO.FileNotFoundException e)
+        catch (System.IO.FileNotFoundException)
         {
             Debug.Log("That file does not exist");
         }
@@ -80,7 +93,7 @@ public class SaveHandler : MonoBehaviour
                 FindObjectOfType<FPSController>().transform.position = myData.playerPosition; // Save position
                 FindObjectOfType<CharacterController>().enabled = true; //Reenable character controller
             }
-            catch (System.IO.FileNotFoundException e)
+            catch (System.IO.FileNotFoundException)
             {
                 Debug.Log("That file does not exist");
             }
@@ -99,5 +112,8 @@ public class SaveHandler : MonoBehaviour
 public class SaveData
 {
     public Vector3 playerPosition;
+    public int playerHealth;
+    public int currentAmmo;
+    public int currentGunIndex;
 
 }

@@ -16,6 +16,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] float lookSensitivityY = 1f;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float jumpForce = 10;
+    [SerializeField] public int health = 10;
 
     // private variables
     Vector3 origin;
@@ -31,6 +32,10 @@ public class FPSController : MonoBehaviour
     // properties
     public GameObject Cam { get { return cam; } }
 
+    public int GetCurrentGun()
+    {
+        return gunIndex;
+    }
 
     private void Awake()
     {
@@ -48,6 +53,7 @@ public class FPSController : MonoBehaviour
             AddGun(initialGun);
 
         origin = transform.position;
+
 
         //InputManager.controls.Player.Sprint.performed += OnSprint;
         //InputManager.controls.Player.Sprint.canceled -= OnSprint;
