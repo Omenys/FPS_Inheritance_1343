@@ -7,7 +7,7 @@ public class SaveHandler : MonoBehaviour
 
     void Start()
     {
-        path = Path.Combine(Application.persistentDataPath, "save.json");
+        path = Path.Combine(Application.persistentDataPath + "save.json");
     }
     void Update()
     {
@@ -39,16 +39,28 @@ public class SaveHandler : MonoBehaviour
 
     public void OnSave()
     {
+        try
+        {
+            SaveData sd = new SaveData();
+            sd.playerPosition = FindObjectOfType<FPSController>().transform.position;
 
-        SaveData sd = new SaveData();
-        sd.playerPosition = FindObjectOfType<FPSController>().transform.position;
+            string jsonText = JsonUtility.ToJson(sd);
+            Debug.Log(jsonText);
 
-        string jsonText = JsonUtility.ToJson(sd);
-        Debug.Log(jsonText);
+            File.WriteAllText(path, jsonText);
 
-        File.WriteAllText(path, jsonText);
+            Debug.Log("Saved data to: " + path);
+        }
+        catch (System.IO.FileNotFoundException e)
+        {
+            Debug.Log("That file does not exist");
+        }
 
-        Debug.Log("Saved data to: " + path);
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
+
 
     }
 
@@ -57,14 +69,26 @@ public class SaveHandler : MonoBehaviour
 
         if (File.Exists(path))
         {
-            string saveText = File.ReadAllText(path);
-            Debug.Log("Loaded data from: " + saveText);
+            try
+            {
+                string saveText = File.ReadAllText(path);
+                Debug.Log("Loaded data from: " + saveText);
 
-            SaveData myData = JsonUtility.FromJson<SaveData>(saveText);
+                SaveData myData = JsonUtility.FromJson<SaveData>(saveText);
 
-            FindObjectOfType<CharacterController>().enabled = false; //Disable character controller
-            FindObjectOfType<FPSController>().transform.position = myData.playerPosition; // Save position
-            FindObjectOfType<CharacterController>().enabled = true; //Reenable character controller
+                FindObjectOfType<CharacterController>().enabled = false; //Disable character controller
+                FindObjectOfType<FPSController>().transform.position = myData.playerPosition; // Save position
+                FindObjectOfType<CharacterController>().enabled = true; //Reenable character controller
+            }
+            catch (System.IO.FileNotFoundException e)
+            {
+                Debug.Log("That file does not exist");
+            }
+
+            catch (System.Exception e)
+            {
+                Debug.Log(e);
+            }
         }
 
     }
