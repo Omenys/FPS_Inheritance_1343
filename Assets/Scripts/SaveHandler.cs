@@ -61,7 +61,10 @@ public class SaveHandler : MonoBehaviour
             Debug.Log("Loaded data from: " + saveText);
 
             SaveData myData = JsonUtility.FromJson<SaveData>(saveText);
-            FindObjectOfType<FPSController>().transform.position = myData.playerPosition;
+
+            FindObjectOfType<CharacterController>().enabled = false; //Disable character controller
+            FindObjectOfType<FPSController>().transform.position = myData.playerPosition; // Save position
+            FindObjectOfType<CharacterController>().enabled = true; //Reenable character controller
         }
 
     }
